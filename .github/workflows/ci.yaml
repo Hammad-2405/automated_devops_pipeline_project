@@ -34,5 +34,8 @@ jobs:
           sed -i "s/tag:.*/tag: ${{ env.SHORT_SHA }}/" ./automated-devops-pipeline-project-time/values.yaml 
           git add ./automated-devops-pipeline-project-time/values.yaml
           git commit -m "Update image tag to ${{ env.SHORT_SHA }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/Hammad-2405/automated_devops_pipeline_project.git
           git push
 #changed token
