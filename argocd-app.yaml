@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: automated-devops-pipeline-project
+  namespace: argocd
+spec:
+  project: default
+  source: 
+    repoURL: 'https://github.com/Hammad-2405/automated_devops_pipeline_project'
+    targetRevision: HEAD
+    path: automated-devops-pipeline-project-time
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      

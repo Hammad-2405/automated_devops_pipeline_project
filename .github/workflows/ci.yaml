@@ -25,5 +25,14 @@ jobs:
       - name: Push to Dockerhub 
         run: |
           docker push hammadddd/automated_devops_pipeline_project:${{ env.SHORT_SHA }}
-          
+      - name: Configure Git Author
+        run: |
+          git config --local user.email "muhammadhammad52@gmail.com"
+          git config --local user.name "Hammad-2405"
+      - name: Update Helm Charts with New Image tag   
+        run: |
+          sed -i "s/tag:.*/tag: ${{ env.SHORT_SHA }}/" ./automated-devops-pipeline-project-time/values.yaml 
+          git add ./automated-devops-pipeline-project-time/values.yaml
+          git commit -m "Update image tag to ${{ env.SHORT_SHA }}"
+          git push
 #changed token

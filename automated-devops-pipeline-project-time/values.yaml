@@ -1,0 +1,17 @@
+image:
+  repository: hammadddd/automated_devops_pipeline_project
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: CluseterIP
+  port: 8080
+
+ingress:
+  ebabled: false
+
+serviceAccount:
+  enabled: false
+
+autoscaling:
+  enabled: false
