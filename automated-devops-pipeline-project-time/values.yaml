@@ -4,7 +4,7 @@ image:
   pullPolicy: IfNotPresent
 
 service:
-  type: CluseterIP
+  type: ClusterIP
   port: 8080
 
 ingress:
