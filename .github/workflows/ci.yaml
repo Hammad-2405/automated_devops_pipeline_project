@@ -31,11 +31,8 @@ jobs:
           git config --local user.name "Hammad-2405"
       - name: Update Helm Charts with New Image tag   
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/Hammad-2405/automated_devops_pipeline_project.git
           sed -i "s/tag:.*/tag: ${{ env.SHORT_SHA }}/" ./automated-devops-pipeline-project-time/values.yaml 
           git add ./automated-devops-pipeline-project-time/values.yaml
-          git commit -m "Update image tag to ${{ env.SHORT_SHA }}" || echo "No changes to commit"
-          git push origin main
+          git commit -m "Update image tag to ${{ env.SHORT_SHA }}"
+          git push
 #changed token
