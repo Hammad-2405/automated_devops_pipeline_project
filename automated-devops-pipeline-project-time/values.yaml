@@ -1,6 +1,6 @@
 image:
   repository: hammadddd/automated_devops_pipeline_project
-  tag: latest
+  tag: 13e2abc
   pullPolicy: IfNotPresent
 
 service:
